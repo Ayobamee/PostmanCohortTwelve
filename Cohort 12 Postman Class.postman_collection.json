@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "1a20cf4a-998e-472b-b167-ea39d193a3ba",
+		"name": "Cohort 12 Postman Class",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21096013"
+	},
+	"item": [
+		{
+			"name": "Create a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Cohort 12 postman\",\n    \"categoryId\": 2,\n    \"description\": \"This is the second postman class\",\n    \"courseUrl\": \"https://www.youtube.com/watch?v=-te3Fc1kB6Y\",\n    \"imageUrl\": \"https://www.istockphoto.com/photo/learning-on-the-job-gm1312139041-401036152?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_top&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fcourse&utm_term=course%3A%3A%3A\",\n    \"location\": \"online\",\n    \"isPremium\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"pm.test(\"Body matches title\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Cohort 12 postman\");",
+							"});",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}2163",
+					"host": [
+						"{{baseUrl}}2163"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all courses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches course title\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"sam post\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify a course",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Cohort 156\",\n    \"categoryId\": 2,\n    \"description\": \"This is the modified postman course class\",\n    \"courseUrl\": \"https://www.youtube.com/watch?v=-te3Fc1kB6Y\",\n    \"imageUrl\": \"https://www.istockphoto.com/photo/learning-on-the-job-gm1312139041-401036152?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_top&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fcourse&utm_term=course%3A%3A%3A\",\n    \"location\": \"online\",\n    \"isPremium\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}2018",
+					"host": [
+						"{{baseUrl}}2018"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a course",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}2018",
+					"host": [
+						"{{baseUrl}}2018"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
